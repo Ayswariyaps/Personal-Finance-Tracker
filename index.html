@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+  <title>Home List</title>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Budget App</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class=" row row-cols-1 row-cols-md-3 g-4 mt-2 d-flex justify-content-evenly">
+    <div class="">
+      <div class="col card p-4 shadow-lg rounded"> 
+        <div class="card-body">
+          <h5 class="card-title">Budget</h5>
+          <input type="number" class="form-control" id="budget" placeholder="Enter your budget">
+          <a href="#" class="btn btn-primary mt-4 d-grid" onclick="addBudget()">Set Budget</a>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="row ">
+          <!-- <div class="col-2"></div> -->
+          <div class="col-12 p-4 mt-4 rounded shadow-lg"  style="background-color: #547EF9;">
+              <div class="row">
+                  <div class="col-md-4 text-center text-white">
+                      <h6 id="">
+                          Total Budget
+                      </h6>
+                      <p id="totalBudget">0</p>
+                  </div>
+                  <div class="col-md-4 text-center text-white">
+                      <h6 >
+                          Total Expenses
+                      </h6>
+                      <p id="totalExpense">0</p>
+                  </div>
+                  <div class="col-md-4 text-center text-white">
+                      <h6 >
+                          Remaining Budget
+                      </h6>
+                      <p id="remainingBudget">0</p>
+                  </div>
+              </div>
+          </div>
+          <!-- <div class="col-2"></div> -->
+      </div>
+      </div>
+    </div>
+
+
+    <div class="col p-4 shadow-lg rounded">
+      <form action="" id="budgetForm">
+        <!-- <div>
+          <label for="dueDate" class="form-label">Due Date</label>
+          <input type="date" name="" id="dueDate" class="form-control">
+
+        </div> -->
+        <div class="row">
+          <div class="col-4">
+            <label for="totalAmount" class="form-label">Total Amount<span>*</span></label>
+            <input type="number" class="form-control" id="totalAmount" required placeholder="PKR">
+          </div>
+          <div class="col-4">
+            <label for="totalAmountExcl" class="form-label" >Amount(excl.txt)</label>
+            <input type="number" class="form-control" id="amountTxt" placeholder="PKR" disabled value="0">
+          </div>
+          <div class="col-4">
+            <label for="totalAmountTax" class="form-label">Tax(8.75%)</label>
+            <input type="number" class="form-control" id="amountTax" placeholder="PKR" disabled value="0">
+          </div>
+        </div>
+        <div>
+          <label for="Category" class="form-label">Category</label>
+          <select name="select" class="form-select mb-3" id="category" >
+            <option value="Cost of Service Provided">Cost of Service Provided</option>
+            <option value="Gas Bill">Gas Bill</option>
+            <option value="Electricity Bill">Electricity Bill</option>
+            <option value="Foods">Foods</option>
+            <option value="Rent charges">Rent charges</option>
+            <option value="other">other</option>
+          </select>
+        </div>
+        <div>
+          <label for="Descreption" class="form-label">Descreption</label>
+          <input type="text" id="description" class="form-control mb-3" placeholder="Enter the details">
+        </div>
+        <div>
+          <label for="paymentDate" class="form-label">Payment Date<span>*</span></label>
+          <input type="date" id="paymentDate" class="form-control ">
+        </div>
+        <div>
+          <a href="#" onclick="addExpenses(event)" id="addExpense" class="btn btn-primary mt-4 d-grid">Save Budget</a>
+        </div>
+      </form>
+    </div>
+    
+  </div>
+
+
+  <div class="container mt-4">
+    <div class="col-md-12">
+        <table id="" class="table table-striped table-hover table-bordered table-success ">
+            <thead>
+                <tr>
+                    <!-- <th>Due Date</th> -->
+                    <th>Total Amount</th>
+                    <th>Amount(excl.txt)</th>
+                    <th>Tax(8.75%)</th>
+                    <th>Category</th>
+                    <th>Description</th>
+                    <th>Payment Date</th>
+                    <th>Edited</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+  <script src="./budget.js"></script>
+</body>
+</html>
